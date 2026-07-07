@@ -13,4 +13,16 @@ final class StoreViewModel: ObservableObject {
 
     @Published var showPermissionAlert: Bool = false
 
+    func storeSelection() {
+        print("Show stores")
+    }
+
+    func dismissPermissionAlert() {
+        showPermissionAlert = false
+    }
+
+    func acceptPermission() {
+        showPermissionAlert = false
+    }
+
 }

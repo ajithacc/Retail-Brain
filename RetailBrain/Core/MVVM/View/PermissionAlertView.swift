@@ -1,0 +1,60 @@
+//
+//  PermissionAlertView.swift
+//  RetailBrain
+//
+//  Created by muhammed.nadeem.m.a on 07/07/26.
+//  Copyright © 2026 Accenture. All rights reserved.
+
+import SwiftUI
+
+struct PermissionAlertView: View {
+
+    @ObservedObject var viewModel: StoreViewModel
+
+    var body: some View {
+        ZStack {
+            Color.black.opacity(0.5)
+                .ignoresSafeArea()
+            VStack(spacing: 16) {
+                Image(.permission)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 158, height: 132)
+                VStack(spacing: 16) {
+                    Text("Accenture Store\naimerait utiliser votre localisation bluetooth")
+                        .font(.graphik(.bold, size: 28))
+                    Text("Activez le Bluetooth pour suivre votre parcours d’achat en magasin.")
+                        .font(.graphik(.regular, size: 18))
+                }
+                .multilineTextAlignment(.center)
+                .padding(.vertical)
+                // Accept and Reject button
+                HStack(spacing: 16) {
+                    Button("Refuser", action: viewModel.dismissPermissionAlert)
+                        .font(.graphik(.bold, size: 16))
+                        .foregroundStyle(.black)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 14)
+                        .background(.white)
+                        .clipShape(Capsule())
+                        .shadow(color: .black.opacity(0.25), radius: 8)
+
+                    PrimaryButton(title: "Accepter", action: viewModel.acceptPermission)
+                }
+            }
+            .padding(25)
+            .background(.white)
+            .clipShape(RoundedRectangle(cornerRadius: 20))
+            .overlay(alignment: .topTrailing) {
+                Button(action: viewModel.dismissPermissionAlert) {
+                    Image(.close)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 24, height: 24)
+                        .padding()
+                }
+            }
+            .padding()
+        }
+    }
+}
