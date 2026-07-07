@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "scan_to_go.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
