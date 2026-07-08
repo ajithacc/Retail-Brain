@@ -10,7 +10,11 @@ import CoreBluetooth
 
 final class PermissionManager: NSObject, PermissionService {
 
-    private let locationManager = CLLocationManager()
+    private let locationManager: LocationAuthorizing
+    private let bluetoothAuthorizationProvider: () -> CBManagerAuthorization
+    private let centralManagerFactory: (CBCentralManagerDelegate) -> CBCentralManager?
+    private let simulatorEnvironment: Bool
+
     private(set) var locationPermissionStatus: CLAuthorizationStatus = .notDetermined
     private(set) var bluetoothPermissionStatus: CBManagerAuthorization = .notDetermined
 
@@ -18,15 +22,26 @@ final class PermissionManager: NSObject, PermissionService {
     private var bluetoothCompletion: ((Bool) -> Void)?
     private var centralManager: CBCentralManager?
 
-    override init() {
+    init(
+        locationManager: LocationAuthorizing = CLLocationManager(),
+        bluetoothAuthorizationProvider: @escaping () -> CBManagerAuthorization = { CBManager.authorization },
+        centralManagerFactory: @escaping (CBCentralManagerDelegate) -> CBCentralManager? = { delegate in
+            CBCentralManager(delegate: delegate, queue: .main)
+        },
+        simulatorEnvironment: Bool = PermissionManager.defaultSimulatorEnvironment
+    ) {
+        self.locationManager = locationManager
+        self.bluetoothAuthorizationProvider = bluetoothAuthorizationProvider
+        self.centralManagerFactory = centralManagerFactory
+        self.simulatorEnvironment = simulatorEnvironment
         super.init()
-        locationManager.delegate = self
+        self.locationManager.locationDelegate = self
         updatePermissionStatuses()
     }
 
     func updatePermissionStatuses() {
-        locationPermissionStatus = locationManager.authorizationStatus
-        bluetoothPermissionStatus = CBManager.authorization
+        locationPermissionStatus = locationManager.currentAuthorizationStatus
+        bluetoothPermissionStatus = bluetoothAuthorizationProvider()
     }
 
     var areAllPermissionsGranted: Bool {
@@ -104,10 +119,14 @@ final class PermissionManager: NSObject, PermissionService {
             return
         }
         self.bluetoothCompletion = completion
-        centralManager = CBCentralManager(delegate: self, queue: .main)
+        centralManager = centralManagerFactory(self)
     }
 
     private func isSimulator() -> Bool {
+        simulatorEnvironment
+    }
+
+    static var defaultSimulatorEnvironment: Bool {
         #if targetEnvironment(simulator)
         return true
         #else
@@ -121,6 +140,11 @@ final class PermissionManager: NSObject, PermissionService {
 extension PermissionManager: CLLocationManagerDelegate {
 
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        handleLocationAuthorizationChange()
+    }
+
+    /// Testable core of the location authorization change handling.
+    func handleLocationAuthorizationChange() {
         updatePermissionStatuses()
         guard locationPermissionStatus != .notDetermined else { return }
         if let completion = locationCompletion {
@@ -135,10 +159,13 @@ extension PermissionManager: CLLocationManagerDelegate {
 extension PermissionManager: CBCentralManagerDelegate {
 
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
+        handleBluetoothStateUpdate(isBluetoothUnavailable: central.state == .unsupported)
+    }
+
+    func handleBluetoothStateUpdate(isBluetoothUnavailable: Bool) {
         updatePermissionStatuses()
         let authorizationDetermined = bluetoothPermissionStatus != .notDetermined
-        let bluetoothUnavailable = central.state == .unsupported
-        guard authorizationDetermined || bluetoothUnavailable else { return }
+        guard authorizationDetermined || isBluetoothUnavailable else { return }
         if let completion = bluetoothCompletion {
             bluetoothCompletion = nil
             centralManager = nil
@@ -146,4 +173,22 @@ extension PermissionManager: CBCentralManagerDelegate {
         }
     }
 
+}
+
+// Abstraction over `CLLocationManager` so the permission logic can be unit tested.
+protocol LocationAuthorizing: AnyObject {
+    var locationDelegate: CLLocationManagerDelegate? { get set }
+    var currentAuthorizationStatus: CLAuthorizationStatus { get }
+    func requestWhenInUseAuthorization()
+}
+
+extension CLLocationManager: LocationAuthorizing {
+    var locationDelegate: CLLocationManagerDelegate? {
+        get { delegate }
+        set { delegate = newValue }
+    }
+
+    var currentAuthorizationStatus: CLAuthorizationStatus {
+        authorizationStatus
+    }
 }
