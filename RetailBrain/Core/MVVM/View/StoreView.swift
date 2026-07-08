@@ -27,6 +27,14 @@ struct StoreView: View {
         .windowOverlay(isPresented: $viewModel.showPermissionAlert) {
             PermissionAlertView(viewModel: viewModel)
         }
+        .alert("Permission requise", isPresented: $viewModel.showSettingsAlert) {
+            Button("Annuler", role: .cancel) { }
+            Button("Réglages") {
+                viewModel.openAppSettings()
+            }
+        } message: {
+            Text(viewModel.settingsAlertMessage)
+        }
     }
 }
 
@@ -90,7 +98,7 @@ extension StoreView {
             ForEach(Feature.sampleData) { feature in
                 Button {
                     if feature.title == "Itinéraire guidé" {
-                        viewModel.showPermissionAlert.toggle()
+                        viewModel.handleGuidedRouteTap()
                     } else {
                         print("\(feature.title) Clicked!")
                     }
@@ -101,6 +109,7 @@ extension StoreView {
         }
         .padding(.top, 10)
         .padding(.horizontal)
+        .scrollIndicators(.hidden)
     }
 
     @ViewBuilder
