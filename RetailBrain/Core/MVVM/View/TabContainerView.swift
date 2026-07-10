@@ -67,6 +67,7 @@ struct TabContainerView: View {
             .frame(maxWidth: .infinity)
         }
         .buttonStyle(.plain)
+        .disabled(tab != .store)
     }
 }
 

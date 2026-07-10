@@ -15,6 +15,7 @@ final class StoreViewModel: ObservableObject {
     @Published var showPermissionAlert: Bool = false
     @Published var showSettingsAlert: Bool = false
     @Published var settingsAlertMessage: String = ""
+    @Published var navigateToGuidedNavView: Bool = false
 
     private let permissionManager: PermissionService
 
@@ -68,7 +69,8 @@ extension StoreViewModel {
     }
 
     func allPermissionsApproved() {
-        print("TODO: All permissions approved, navigate to map screen")
+        print("All permissions approved, navigating to Guided Navigation View")
+        navigateToGuidedNavView = true
     }
 
     func openAppSettings() {

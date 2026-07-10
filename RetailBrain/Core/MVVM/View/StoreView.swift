@@ -35,6 +35,9 @@ struct StoreView: View {
         } message: {
             Text(viewModel.settingsAlertMessage)
         }
+        .navigationDestination(isPresented: $viewModel.navigateToGuidedNavView) {
+            GuidedNavigationView()
+        }
     }
 }
 
@@ -97,14 +100,11 @@ extension StoreView {
         ScrollView {
             ForEach(Feature.sampleData) { feature in
                 Button {
-                    if feature.title == "Itinéraire guidé" {
-                        viewModel.handleGuidedRouteTap()
-                    } else {
-                        print("\(feature.title) Clicked!")
-                    }
+                    viewModel.handleGuidedRouteTap()
                 } label: {
                     featureRow(feature)
                 }
+                .disabled(feature.title != "Itinéraire guidé")
             }
         }
         .padding(.top, 10)
