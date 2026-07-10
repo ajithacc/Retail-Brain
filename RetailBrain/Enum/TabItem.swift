@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum TabItem: Hashable {
+enum TabItem: Hashable, CaseIterable {
     case online
     case store
     case wallet

@@ -2,6 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <key>UIUserInterfaceStyle</key>
+    <string>Light</string>
+    <key>NSBluetoothAlwaysUsageDescription</key>
+    <string>Retail Brain uses Bluetooth to help you navigate the store and track promotions near you.</string>
+    <key>NSBluetoothPeripheralUsageDescription</key>
+    <string>Retail Brain uses Bluetooth to help you navigate the store and track promotions near you.</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Retail Brain needs access to your location to show you the best shopping routes in the store.</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Retail Brain needs access to your location to show you the best shopping routes in the store.</string>
     <key>UIDesignRequiresCompatibility</key>
     <true/>
     <key>UIAppFonts</key>

@@ -12,7 +12,7 @@ struct RetailBrainApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                StoreView()
+                TabContainerView()
             }
         }
     }
