@@ -19,7 +19,7 @@ struct ExpandableFloatingMenu: View {
 
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
-            VStack(alignment: .trailing, spacing: 18) {
+            VStack(alignment: .trailing, spacing: 10) {
                 ForEach(Array(FloatingMenuItem.menu.enumerated()), id: \.element.id) { index, menu in
                     menuItem(menu: menu)
                         .scaleEffect(expanded ? 1 : 0.2, anchor: .bottomTrailing)
@@ -44,28 +44,23 @@ struct ExpandableFloatingMenu: View {
             }
         } label: {
             ZStack(alignment: .topTrailing) {
-                Image(.chevron)
+                Image(.floatmenu)
                     .resizable()
-                    .scaledToFit()
-                    .frame(width: 22, height: 22)
+                    .scaledToFill()
+                    .frame(width: 60, height: 60)
                     .rotationEffect(.degrees(expanded ? 0 : 180))
-                    .padding(20)
-                    .background(.white)
-                    .clipShape(Circle())
-                    .shadow(radius: 10)
                 if totalTagCount > 0 && !expanded {
                     Text("\(totalTagCount)")
                         .font(.graphik(.bold, size: 16))
                         .foregroundStyle(.white)
-                        .padding(8)
+                        .padding(6)
                         .background(.brandPrimary)
                         .clipShape(Circle())
                         .overlay {
                             Circle()
                                 .stroke(.white, lineWidth: 2)
                         }
-                        .offset(y: -6)
-                        .transition(.scale)
+                        .transition(.opacity)
                 }
             }
         }
@@ -82,7 +77,7 @@ struct ExpandableFloatingMenu: View {
                 onClick(menu)
             }
         } label: {
-            HStack(spacing: 16) {
+            HStack(spacing: 10) {
                 Text(menu.title)
                     .foregroundStyle(menu.highlight ? .white : .black)
                     .font(.graphik(.regular, size: 16))
@@ -104,38 +99,28 @@ struct ExpandableFloatingMenu: View {
                 ZStack(alignment: .topTrailing) {
                     Image(menu.image)
                         .resizable()
-                        .scaledToFit()
-                        .frame(width: 22, height: 22)
-                        .padding(20)
-                        .background(menu.highlight ? AnyShapeStyle(
-                            LinearGradient(
-                                colors: [
-                                    Color(hex: "#460073"),
-                                    Color(hex: "#8400D9")
-                                ],
-                                startPoint: .leading,
-                                endPoint: .trailing
-                            )
-                        ) : AnyShapeStyle(Color.white))
-                        .clipShape(Circle())
-                        .shadow(color: .black.opacity(0.25), radius: 8)
+                        .scaledToFill()
+                        .frame(width: 60, height: 60)
                     // Tag
                     if let tag = menu.tag {
                         Text("\(tag)")
                             .font(.graphik(.bold, size: 16))
                             .foregroundStyle(.white)
-                            .padding(8)
+                            .padding(6)
                             .background(Color(hex: "#FF50A0"))
                             .clipShape(Circle())
                             .overlay {
                                 Circle()
                                     .stroke(.white, lineWidth: 1.3)
                             }
-                            .offset(y: -6)
                     }
                 }
             }
         }
         .buttonStyle(NoAnimationButton())
     }
+}
+
+#Preview(traits: .sizeThatFitsLayout) {
+    ExpandableFloatingMenu(expanded: .constant(true)) { _ in }
 }
