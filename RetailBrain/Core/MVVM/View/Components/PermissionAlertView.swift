@@ -30,19 +30,22 @@ struct PermissionAlertView: View {
                 .padding(.vertical)
                 // Accept and Reject button
                 HStack(spacing: 16) {
-                    Button("Refuser", action: viewModel.dismissPermissionAlert)
-                        .font(.graphik(.bold, size: 16))
-                        .foregroundStyle(.black)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 14)
-                        .background(.white)
-                        .clipShape(Capsule())
-                        .shadow(color: .black.opacity(0.25), radius: 8)
+                    Button(action: viewModel.dismissPermissionAlert) {
+                        Text("Refuser")
+                            .font(.graphik(.bold, size: 16))
+                            .foregroundStyle(.black)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 14)
+                            .background(.white)
+                            .clipShape(Capsule())
+                    }
+                    .shadow(color: .black.opacity(0.25), radius: 8)
 
                     PrimaryButton(title: "Accepter", action: viewModel.acceptPermission)
                 }
             }
             .padding(25)
+            .frame(maxWidth: 450)
             .background(.white)
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .overlay(alignment: .topTrailing) {

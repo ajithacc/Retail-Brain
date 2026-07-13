@@ -185,7 +185,7 @@ extension GuidedNavigationView {
         .padding(.horizontal)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea(edges: .bottom)
-        .background(.white)
+        .background(Color.white.ignoresSafeArea())
     }
 
 }
