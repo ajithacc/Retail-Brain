@@ -293,7 +293,7 @@
         }
       }
     },
-    "nfcoverlay.title" : {
+    "nfc.overlay.title" : {
       "extractionState" : "manual",
       "localizations" : {
         "fr" : {

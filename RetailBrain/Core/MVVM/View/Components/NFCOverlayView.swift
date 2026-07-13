@@ -24,7 +24,7 @@ struct NFCOverlayView: View {
                     .padding(.top)
 
                 VStack(spacing: 8) {
-                    Text(String(localized: "nfcoverlay.title"))
+                    Text(String(localized: "nfc.overlay.title"))
                         .font(.graphik(.regular, size: 24))
                         .foregroundStyle(.brandPrimary)
                     Group {
