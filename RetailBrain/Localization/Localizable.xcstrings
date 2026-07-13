@@ -260,6 +260,50 @@
         }
       }
     },
+    "nfc.overlay.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rapprochez votre téléphone d’une étiquette connectée pour ouvrir automatiquement la fiche du produit et consulter ses informations à tout moment."
+          }
+        }
+      }
+    },
+    "nfc.overlay.hint" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[Insert here the utility of this “NFC” pin]"
+          }
+        }
+      }
+    },
+    "nfc.overlay.parnfc" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "par NFC"
+          }
+        }
+      }
+    },
+    "nfcoverlay.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contenu enrichi"
+          }
+        }
+      }
+    },
     "permission.alert.accept" : {
       "extractionState" : "manual",
       "localizations" : {

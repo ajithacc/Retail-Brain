@@ -14,6 +14,13 @@ struct FloatingMenuItem: Identifiable {
     let image: String
     let highlight: Bool
     let tag: Int?
+    let type: MenuType
+
+    enum MenuType: CaseIterable {
+        case list
+        case enrichedContent
+        case challenge
+    }
 }
 
 extension FloatingMenuItem {
@@ -28,18 +35,21 @@ extension FloatingMenuItem {
             image: "mesdefis",
             highlight: true,
             tag: 5,
+            type: .challenge,
         ),
         .init(
             title: String(localized: "floating_menu.enriched_content.title"),
             image: "contenuenrichi",
             highlight: false,
             tag: nil,
+            type: .enrichedContent,
         ),
         .init(
             title: String(localized: "floating_menu.lists.title"),
             image: "meslistes",
             highlight: false,
             tag: nil,
+            type: .list,
         )
     ]
 }

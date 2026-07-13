@@ -63,7 +63,7 @@ extension StoreViewModel {
     }
 
     func allPermissionsApproved() {
-        print("All permissions approved, navigating to Guided Navigation View")
+        print("✅ All permissions approved, navigating to Guided Navigation View")
         navigateToGuidedNavView = true
     }
 

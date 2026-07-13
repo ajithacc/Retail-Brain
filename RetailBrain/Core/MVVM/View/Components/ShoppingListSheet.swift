@@ -1,5 +1,5 @@
 //
-//  ShoppingListSheetView.swift
+//  ShoppingListSheet.swift
 //  RetailBrain
 //
 //  Created by muhammed.nadeem.m.a on 10/07/26.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ShoppingListSheetView: View {
+struct ShoppingListSheet: View {
 
     @Binding var showList: Bool
 
@@ -29,7 +29,7 @@ struct ShoppingListSheetView: View {
 }
 
 // MARK: SUBVIEWS
-extension ShoppingListSheetView {
+extension ShoppingListSheet {
 
     @ViewBuilder
     private var closeButton: some View {
@@ -131,5 +131,5 @@ extension ShoppingListSheetView {
 }
 
 #Preview {
-    ShoppingListSheetView(showList: .constant(true))
+    ShoppingListSheet(showList: .constant(true))
 }

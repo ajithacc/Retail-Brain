@@ -25,7 +25,7 @@ struct GuidedNavigationView: View {
                     // Map
                     MapPlaceholderView()
                     // Current destination
-                    locationView
+                    CurrentDestinationView()
                     // Search overlay
                     if isSearchFocused {
                         searchOverlayView
@@ -37,7 +37,7 @@ struct GuidedNavigationView: View {
                         .ignoresSafeArea()
                 )
                 // Floating Menu Button
-                floatingButton
+                floatingMenuButton
             }
             .ignoresSafeArea(.keyboard, edges: .bottom)
         }
@@ -45,7 +45,7 @@ struct GuidedNavigationView: View {
         .animation(.easeInOut, value: floatingMenuExpanded)
         .navigationBarBackButtonHidden(true)
         .sheet(isPresented: $showListSheet) {
-            ShoppingListSheetView(showList: $showListSheet)
+            ShoppingListSheet(showList: $showListSheet)
                 .presentationDetents([.medium])
         }
         .onChange(of: isSearchFocused) { _, _ in
@@ -119,43 +119,17 @@ extension GuidedNavigationView {
     }
 
     @ViewBuilder
-    private var locationView: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            Text(String(localized: "guided_nav.route.in_progress"))
-                .font(.graphik(.regular, size: 14))
-                .foregroundStyle(.brandPrimary)
-            HStack(alignment: .center) {
-                Image(.bluedot)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 16, height: 16)
-                Text(String(localized: "common.location"))
-                    .font(.graphik(.bold, size: 14))
-                    .foregroundStyle(.black)
-                Text(String(localized: "guided_nav.location.value"))
-                    .font(.graphik(.regular, size: 14))
-                    .foregroundStyle(.black)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.horizontal, 10)
-            .padding(.vertical, 8)
-            .background(Color(hex: "#F7F7F7"))
-            .clipShape(RoundedRectangle(cornerRadius: 5))
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(.vertical, 10)
-        .padding(.horizontal, 16)
-        .background(.white)
-        .clipShape(RoundedRectangle(cornerRadius: 12))
-        .padding()
-        .frame(maxHeight: .infinity, alignment: .top)
-    }
-
-    @ViewBuilder
-    private var floatingButton: some View {
+    private var floatingMenuButton: some View {
         if !isSearchFocused {
             ExpandableFloatingMenu(expanded: $floatingMenuExpanded) { menu in
-                showListSheet.toggle()
+                switch menu.type {
+                case .challenge:
+                    print("Show Challenge view")
+                case .enrichedContent:
+                    print("Show NFC Overlay")
+                case .list:
+                    showListSheet = true
+                }
             }
             .padding()
         }
@@ -179,7 +153,7 @@ extension GuidedNavigationView {
                         .frame(width: 16, height: 16)
                 }
             }
-            Spacer()
+            Spacer() // Search results
         }
         .padding(.top, 20)
         .padding(.horizontal)

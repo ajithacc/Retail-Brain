@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "NFC Badge.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
