@@ -81,7 +81,7 @@ extension GuidedNavigationView {
                     .frame(width: 28, height: 28)
                 TextField("",
                           text: $searchText,
-                          prompt: Text("Rechercher en magasin ...")
+                          prompt: Text(String(localized: "guided_nav.search.placeholder"))
                     .foregroundStyle(Color(hex: "#767676"))
                 )
                 .tint(.black)
@@ -121,7 +121,7 @@ extension GuidedNavigationView {
     @ViewBuilder
     private var locationView: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text("Itinéraire en cours ...")
+            Text(String(localized: "guided_nav.route.in_progress"))
                 .font(.graphik(.regular, size: 14))
                 .foregroundStyle(.brandPrimary)
             HStack(alignment: .center) {
@@ -129,10 +129,10 @@ extension GuidedNavigationView {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 16, height: 16)
-                Text("Localisation")
+                Text(String(localized: "common.location"))
                     .font(.graphik(.bold, size: 14))
                     .foregroundStyle(.black)
-                Text("Hall d’entrée")
+                Text(String(localized: "guided_nav.location.value"))
                     .font(.graphik(.regular, size: 14))
                     .foregroundStyle(.black)
             }
@@ -166,7 +166,7 @@ extension GuidedNavigationView {
         VStack {
             // Search View Header
             HStack {
-                Text("Déjà consulté")
+                Text(String(localized: "guided_nav.recently_viewed"))
                     .font(.graphik(.bold, size: 24))
                     .foregroundStyle(.black)
                 Spacer()
@@ -199,7 +199,7 @@ struct MapPlaceholderView: View {
         Color.brandPrimary
             .ignoresSafeArea()
             .overlay {
-                Text("MAP")
+                Text(String(localized: "map.placeholder"))
                     .bold()
                     .foregroundStyle(.black)
             }

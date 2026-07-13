@@ -50,7 +50,7 @@ extension ShoppingListSheetView {
     @ViewBuilder
     private var headerView: some View {
         HStack(alignment: .center) {
-            Text("Mes listes")
+            Text(String(localized: "shopping_list.title"))
                 .font(.graphik(.bold, size: 24))
             Spacer()
             closeButton
@@ -72,9 +72,9 @@ extension ShoppingListSheetView {
                 .scaledToFit()
                 .frame(width: 158, height: 153)
             Group {
-                Text("Créez des listes pour les retrouver juste ici !")
+                Text(String(localized: "shopping_list.empty.title"))
                     .font(.graphik(.bold, size: 24))
-                Text("N’hésitez pas à créer des thèmes pour une optimisation optimale.")
+                Text(String(localized: "shopping_list.empty.subtitle"))
                     .font(.graphik(.regular, size: 16))
             }
             .padding(.horizontal)
@@ -93,7 +93,7 @@ extension ShoppingListSheetView {
                     Button {
                         print("index clicked: \(index)")
                     } label: {
-                        wishListItem(item: "Courses de la semaine", count: index + 1)
+                        wishListItem(item: String(localized: "shopping_list.weekly.title"), count: index + 1)
                     }
                 }
             }
@@ -110,7 +110,7 @@ extension ShoppingListSheetView {
             VStack(alignment: .leading, spacing: 5) {
                 Text(item)
                     .font(.graphik(.regular, size: 20))
-                Text("\(count) produits")
+                Text(String(localized: "shopping_list.product_count") + "\(count)")
                     .font(.graphik(.regular, size: 16))
             }
             .foregroundStyle(.black)

@@ -38,10 +38,7 @@ extension StoreViewModel {
             allPermissionsApproved()
         } else if permissionManager.isLocationPermissionDenied || permissionManager.isBluetoothPermissionDenied {
             // A required permission was permanently denied, navigate user to phone settings
-            presentSettingsAlert(
-                locationGranted: permissionManager.isLocationPermissionGranted,
-                bluetoothGranted: permissionManager.isBluetoothPermissionGranted
-            )
+            presentSettingsAlert()
         } else {
             showPermissionAlert = true
         }
@@ -59,10 +56,7 @@ extension StoreViewModel {
                 if locationGranted && bluetoothGranted {
                     self.allPermissionsApproved()
                 } else {
-                    self.presentSettingsAlert(
-                        locationGranted: locationGranted,
-                        bluetoothGranted: bluetoothGranted
-                    )
+                    self.presentSettingsAlert()
                 }
             }
         }
@@ -79,18 +73,9 @@ extension StoreViewModel {
         UIApplication.shared.open(url)
     }
 
-    private func presentSettingsAlert(locationGranted: Bool, bluetoothGranted: Bool) {
+    private func presentSettingsAlert() {
         showPermissionAlert = false
-        settingsAlertMessage = settingsMessage(locationGranted: locationGranted, bluetoothGranted: bluetoothGranted)
         showSettingsAlert = true
-    }
-
-    private func settingsMessage(locationGranted: Bool, bluetoothGranted: Bool) -> String {
-        var missing: [String] = []
-        if !locationGranted { missing.append("Localisation") }
-        if !bluetoothGranted { missing.append("Bluetooth") }
-        let permissions = missing.joined(separator: " et ")
-        return "Vous avez refusé l’accès à \(permissions). Veuillez l’autoriser dans les Réglages pour utiliser l’itinéraire guidé."
     }
 
 }

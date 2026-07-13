@@ -109,10 +109,10 @@ struct ShoppingListDraggableSheet: View {
 
     private var header: some View {
         VStack(alignment: .leading, spacing: 2) {
-            Text("Courses de la semaine")
+            Text(String(localized: "shopping_list.weekly.title"))
                 .font(.graphik(.bold, size: 20))
                 .foregroundStyle(.black)
-            Text("14 Produits")
+            Text(String(localized: "shopping_list.weekly.count"))
                 .font(.graphik(.regular, size: 14))
                 .foregroundStyle(Color(hex: "#767676"))
         }
@@ -126,7 +126,7 @@ struct ShoppingListDraggableSheet: View {
         ScrollView {
             VStack(spacing: 16) {
                 productSection(
-                    title: "Fruits, légumes",
+                    title: String(localized: "shopping_list.section.produce"),
                     products: [
                         .init(name: "Pommes Gala", brand: "SANS MARQUE", detail: "6 pièces"),
                         .init(name: "Salade Batavia", brand: "SANS MARQUE", detail: "1 pièce  |  France"),
@@ -134,13 +134,13 @@ struct ShoppingListDraggableSheet: View {
                     ]
                 )
                 productSection(
-                    title: "Boucherie, volaille, poissonnerie",
+                    title: String(localized: "shopping_list.section.butchery"),
                     products: [
                         .init(name: "Filet de poulet blanc", brand: "LE GAULOIS", detail: "720g  |  Volaille Française")
                     ]
                 )
                 productSection(
-                    title: "Charcuterie, traiteur",
+                    title: String(localized: "shopping_list.section.deli"),
                     products: [
                         .init(name: "Le Bon Paris Jambon réduit en sel sans nitrite", brand: "HERTA", detail: "140g  |  Fabriqué en France")
                     ]
@@ -197,7 +197,7 @@ private struct ShoppingProductRow: View {
                 Text(product.detail)
                     .font(.graphik(.regular, size: 12))
                     .foregroundStyle(Color(hex: "#767676"))
-                Text("10% Jour GO! cagnottés")
+                Text("\(10)%" + String(localized: "shopping_list.reward_badge"))
                     .font(.graphik(.semibold, size: 11))
                     .foregroundStyle(.white)
                     .padding(.horizontal, 8)

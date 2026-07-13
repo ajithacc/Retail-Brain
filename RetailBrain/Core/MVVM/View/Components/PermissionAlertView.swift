@@ -21,9 +21,9 @@ struct PermissionAlertView: View {
                     .scaledToFit()
                     .frame(width: 158, height: 132)
                 VStack(spacing: 16) {
-                    Text("Accenture Store\naimerait utiliser votre localisation bluetooth")
+                    Text(String(localized: "permission.alert.title"))
                         .font(.graphik(.bold, size: 28))
-                    Text("Activez le Bluetooth pour suivre votre parcours d’achat en magasin.")
+                    Text(String(localized: "permission.alert.message"))
                         .font(.graphik(.regular, size: 18))
                 }
                 .multilineTextAlignment(.center)
@@ -31,7 +31,7 @@ struct PermissionAlertView: View {
                 // Accept and Reject button
                 HStack(spacing: 16) {
                     Button(action: viewModel.dismissPermissionAlert) {
-                        Text("Refuser")
+                        Text(String(localized: "permission.alert.decline"))
                             .font(.graphik(.bold, size: 16))
                             .foregroundStyle(.black)
                             .frame(maxWidth: .infinity)
@@ -41,7 +41,7 @@ struct PermissionAlertView: View {
                     }
                     .shadow(color: .black.opacity(0.25), radius: 8)
 
-                    PrimaryButton(title: "Accepter", action: viewModel.acceptPermission)
+                    PrimaryButton(title: String(localized: "permission.alert.accept"), action: viewModel.acceptPermission)
                 }
             }
             .padding(25)

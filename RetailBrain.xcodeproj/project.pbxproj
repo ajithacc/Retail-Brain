@@ -184,7 +184,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2640;
-				LastUpgradeCheck = 2640;
+				LastUpgradeCheck = 2660;
 				ORGANIZATIONNAME = Accenture;
 				TargetAttributes = {
 					307C21922FFCD80F001EDA17 = {
@@ -201,11 +201,11 @@
 				};
 			};
 			buildConfigurationList = 307C218E2FFCD80F001EDA17 /* Build configuration list for PBXProject "RetailBrain" */;
-			developmentRegion = en;
+			developmentRegion = fr;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				fr,
 			);
 			mainGroup = 307C218A2FFCD80F001EDA17;
 			minimizedProjectReferenceProxies = 1;
@@ -343,6 +343,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -400,6 +401,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

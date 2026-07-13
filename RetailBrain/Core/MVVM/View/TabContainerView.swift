@@ -77,18 +77,18 @@ struct TabContainerView: View {
 
 struct OnlineView: View {
     var body: some View {
-        Text("OnlineView")
+        Text(String(localized: "placeholder.online"))
     }
 }
 
 struct WalletView: View {
     var body: some View {
-        Text("WalletView")
+        Text(String(localized: "placeholder.wallet"))
     }
 }
 
 struct AccountView: View {
     var body: some View {
-        Text("AccountView")
+        Text(String(localized: "placeholder.account"))
     }
 }

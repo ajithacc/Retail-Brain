@@ -27,13 +27,13 @@ struct StoreView: View {
         .windowOverlay(isPresented: $viewModel.showPermissionAlert) {
             PermissionAlertView(viewModel: viewModel)
         }
-        .alert("Permission requise", isPresented: $viewModel.showSettingsAlert) {
-            Button("Annuler", role: .cancel) { }
-            Button("Réglages") {
+        .alert(String(localized: "alert.settings.title"), isPresented: $viewModel.showSettingsAlert) {
+            Button(String(localized: "common.cancel"), role: .cancel) { }
+            Button(String(localized: "common.settings")) {
                 viewModel.openAppSettings()
             }
         } message: {
-            Text(viewModel.settingsAlertMessage)
+            Text(String(localized: "alert.settings.description"))
         }
         .navigationDestination(isPresented: $viewModel.navigateToGuidedNavView) {
             GuidedNavigationView()
@@ -54,17 +54,17 @@ extension StoreView {
                     .frame(width: 26, height: 24)
                     .padding(.trailing, 8)
                 VStack(alignment: .leading, spacing: 5) {
-                    Text("Mon Magasin")
+                    Text(String(localized: "store.selector.title"))
                         .font(.graphik(.black, size: 20))
                         .foregroundStyle(.brandPrimary)
-                    Text("Accenture Store\nParis 13 ème")
+                    Text(String(localized: "store.selector.name"))
                         .font(.graphik(.black, size: 21))
                         .foregroundStyle(.black)
                     HStack(spacing: 5) {
                         Circle()
                             .fill(Color(hex: "#009854"))
                             .frame(width: 7, height: 7)
-                        Text("Ouvert aujourd’hui jusque 21:30")
+                        Text(String(localized: "store.selector.hours"))
                             .font(.graphik(.regular, size: 13))
                             .foregroundStyle(.black)
                     }
@@ -87,7 +87,7 @@ extension StoreView {
 
     @ViewBuilder
     private var featuresTitle: some View {
-        Text("A utiliser dans votre magasin")
+        Text(String(localized: "store.features.title"))
             .font(.graphik(.regular, size: 20))
             .foregroundStyle(.black)
             .padding(.horizontal)
@@ -104,7 +104,7 @@ extension StoreView {
                 } label: {
                     featureRow(feature)
                 }
-                .disabled(feature.title != "Itinéraire guidé")
+                .disabled(feature.title != String(localized: "feature.guided_route.title"))
             }
         }
         .padding(.top, 10)

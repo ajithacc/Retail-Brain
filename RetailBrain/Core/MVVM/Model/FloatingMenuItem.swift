@@ -24,19 +24,19 @@ extension FloatingMenuItem {
 
     static let menu: [Self] = [
         .init(
-            title: "Mes Défis",
+            title: String(localized: "floating_menu.challenges.title"),
             image: "mesdefis",
             highlight: true,
             tag: 5,
         ),
         .init(
-            title: "Contenu Enrichi",
+            title: String(localized: "floating_menu.enriched_content.title"),
             image: "contenuenrichi",
             highlight: false,
             tag: nil,
         ),
         .init(
-            title: "Mes Listes",
+            title: String(localized: "floating_menu.lists.title"),
             image: "meslistes",
             highlight: false,
             tag: nil,
