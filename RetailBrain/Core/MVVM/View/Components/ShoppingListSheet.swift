@@ -11,19 +11,20 @@ import SwiftUI
 struct ShoppingListSheet: View {
 
     @Binding var showList: Bool
+    let list: [String] = []
 
     var body: some View {
         VStack(spacing: 0) {
             // Header
             headerView
             // Content (empty state and wishlist)
-            if true == false {
+            if !list.isEmpty {
                 wishListItems
             } else {
                 emptyStateView
             }
         }
-        .background(Color.appBackground)
+        .background(Color.appbackground)
     }
 
 }

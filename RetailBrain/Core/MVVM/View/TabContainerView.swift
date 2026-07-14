@@ -63,7 +63,7 @@ struct TabContainerView: View {
                 Text(tab.title)
                     .font(.graphik(isSelected ? .bold : .regular, size: 13))
             }
-            .foregroundStyle(isSelected ? Color.brandPrimary : Color.black)
+            .foregroundStyle(isSelected ? Color.brandprimary : Color.black)
             .frame(maxWidth: .infinity)
         }
         .buttonStyle(.plain)

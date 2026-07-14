@@ -33,7 +33,7 @@ struct PrimaryButton: View {
             .foregroundStyle(.white)
             .frame(maxWidth: .infinity)
             .padding(.vertical, 14)
-            .background(.brandPrimary)
+            .background(.brandprimary)
             .clipShape(Capsule())
             .contentShape(Capsule())
         }
