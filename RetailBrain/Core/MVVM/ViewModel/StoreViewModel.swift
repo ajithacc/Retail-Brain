@@ -13,8 +13,6 @@ import UIKit
 final class StoreViewModel: ObservableObject {
 
     @Published var showPermissionAlert: Bool = false
-    @Published var showSettingsAlert: Bool = false
-    @Published var settingsAlertMessage: String = ""
     @Published var navigateToGuidedNavView: Bool = false
 
     private let permissionManager: PermissionService
@@ -36,9 +34,6 @@ extension StoreViewModel {
         permissionManager.updatePermissionStatuses()
         if permissionManager.areAllPermissionsGranted {
             allPermissionsApproved()
-        } else if permissionManager.isLocationPermissionDenied || permissionManager.isBluetoothPermissionDenied {
-            // A required permission was permanently denied, navigate user to phone settings
-            presentSettingsAlert()
         } else {
             showPermissionAlert = true
         }
@@ -49,6 +44,11 @@ extension StoreViewModel {
     }
 
     func acceptPermission() {
+        permissionManager.updatePermissionStatuses()
+        if permissionManager.isLocationPermissionDenied || permissionManager.isBluetoothPermissionDenied {
+            openAppSettings()
+            return
+        }
         permissionManager.requestAllPermissions { [weak self] locationGranted, bluetoothGranted in
             guard let self else { return }
             DispatchQueue.main.async {
@@ -56,7 +56,7 @@ extension StoreViewModel {
                 if locationGranted && bluetoothGranted {
                     self.allPermissionsApproved()
                 } else {
-                    self.presentSettingsAlert()
+                    self.openAppSettings()
                 }
             }
         }
@@ -68,14 +68,10 @@ extension StoreViewModel {
     }
 
     func openAppSettings() {
+        showPermissionAlert = false
         guard let url = URL(string: UIApplication.openSettingsURLString),
               UIApplication.shared.canOpenURL(url) else { return }
         UIApplication.shared.open(url)
-    }
-
-    private func presentSettingsAlert() {
-        showPermissionAlert = false
-        showSettingsAlert = true
     }
 
 }

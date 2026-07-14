@@ -27,14 +27,6 @@ struct StoreView: View {
         .windowOverlay(isPresented: $viewModel.showPermissionAlert) {
             PermissionAlertView(viewModel: viewModel)
         }
-        .alert(String(localized: "alert.settings.title"), isPresented: $viewModel.showSettingsAlert) {
-            Button(String(localized: "common.cancel"), role: .cancel) { }
-            Button(String(localized: "common.settings")) {
-                viewModel.openAppSettings()
-            }
-        } message: {
-            Text(String(localized: "alert.settings.description"))
-        }
         .navigationDestination(isPresented: $viewModel.navigateToGuidedNavView) {
             GuidedNavigationView()
         }
