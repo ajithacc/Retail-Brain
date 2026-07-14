@@ -7,28 +7,6 @@
     "%lld" : {
 
     },
-    "alert.settings.description" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vous avez refusé l’accès à une ou plusieurs autorisations requises. Veuillez les autoriser dans les Réglages pour utiliser l’itinéraire guidé."
-          }
-        }
-      }
-    },
-    "alert.settings.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Permission requise"
-          }
-        }
-      }
-    },
     "common.cancel" : {
       "extractionState" : "manual",
       "localizations" : {

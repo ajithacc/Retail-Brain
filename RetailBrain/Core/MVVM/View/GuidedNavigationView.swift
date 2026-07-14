@@ -47,6 +47,7 @@ struct GuidedNavigationView: View {
         .sheet(isPresented: $showListSheet) {
             ShoppingListSheet(showList: $showListSheet)
                 .presentationDetents([.medium])
+                .interactiveDismissDisabled()
         }
         .onChange(of: isSearchFocused) { _, _ in
             floatingMenuExpanded = false
