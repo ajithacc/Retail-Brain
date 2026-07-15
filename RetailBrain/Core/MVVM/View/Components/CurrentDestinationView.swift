@@ -13,7 +13,7 @@ struct CurrentDestinationView: View {
         VStack(alignment: .leading, spacing: 10) {
             Text(String(localized: "guided_nav.route.in_progress"))
                 .font(.graphik(.regular, size: 14))
-                .foregroundStyle(.brandPrimary)
+                .foregroundStyle(.brandprimary)
             HStack(alignment: .center) {
                 Image(.bluedot)
                     .resizable()
@@ -29,7 +29,7 @@ struct CurrentDestinationView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.horizontal, 10)
             .padding(.vertical, 8)
-            .background(Color(hex: "#F7F7F7"))
+            .background(.appbackground)
             .clipShape(RoundedRectangle(cornerRadius: 5))
         }
         .frame(maxWidth: .infinity, alignment: .leading)

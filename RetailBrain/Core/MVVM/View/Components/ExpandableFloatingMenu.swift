@@ -54,7 +54,7 @@ struct ExpandableFloatingMenu: View {
                         .font(.graphik(.bold, size: 16))
                         .foregroundStyle(.white)
                         .padding(6)
-                        .background(.brandPrimary)
+                        .background(.brandprimary)
                         .clipShape(Circle())
                         .overlay {
                             Circle()
@@ -107,7 +107,7 @@ struct ExpandableFloatingMenu: View {
                             .font(.graphik(.bold, size: 16))
                             .foregroundStyle(.white)
                             .padding(6)
-                            .background(Color(hex: "#FF50A0"))
+                            .background(.tagbackground)
                             .clipShape(Circle())
                             .overlay {
                                 Circle()

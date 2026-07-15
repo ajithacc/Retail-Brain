@@ -13,7 +13,7 @@ struct StoreView: View {
 
     var body: some View {
         ZStack {
-            Color.appBackground
+            Color.appbackground
                 .ignoresSafeArea()
             VStack(alignment: .leading, spacing: 0) {
                 // Store Selector
@@ -51,13 +51,14 @@ extension StoreView {
                 VStack(alignment: .leading, spacing: 5) {
                     Text(String(localized: "store.selector.title"))
                         .font(.graphik(.black, size: 20))
-                        .foregroundStyle(.brandPrimary)
+                        .foregroundStyle(.brandprimary)
                     Text(viewModel.selectedStore?.storeName ?? "---")
+                        .foregroundStyle(.brandprimary)
                         .font(.graphik(.black, size: 21))
                         .foregroundStyle(.black)
                     HStack(spacing: 5) {
                         Circle()
-                            .fill(Color(hex: "#009854"))
+                            .fill(.online)
                             .frame(width: 7, height: 7)
                         Text(String(localized: "store.selector.hours"))
                             .font(.graphik(.regular, size: 13))

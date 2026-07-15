@@ -83,9 +83,10 @@ extension GuidedNavigationView {
                 TextField("",
                           text: $searchText,
                           prompt: Text(String(localized: "guided_nav.search.placeholder"))
-                    .foregroundStyle(Color(hex: "#767676"))
+                    .foregroundStyle(.textfieldplaceholder)
                 )
                 .tint(.black)
+                .submitLabel(.search)
                 .font(.graphik(.regular, size: 15))
                 .foregroundStyle(.black)
                 .focused($isSearchFocused)
@@ -107,7 +108,7 @@ extension GuidedNavigationView {
                     .fill(.white)
             )
             .overlay(
-                Capsule().stroke(isSearchFocused ? .brandPrimary : .gray, lineWidth: 1)
+                Capsule().stroke(isSearchFocused ? .brandprimary : .textfieldborder, lineWidth: 1)
             )
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -171,7 +172,7 @@ extension GuidedNavigationView {
 
 struct MapPlaceholderView: View {
     var body: some View {
-        Color.brandPrimary
+        Color.brandprimary
             .ignoresSafeArea()
             .overlay {
                 Text(String(localized: "map.placeholder"))
