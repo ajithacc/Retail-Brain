@@ -86,6 +86,7 @@ extension GuidedNavigationView {
                     .foregroundStyle(.textfieldplaceholder)
                 )
                 .tint(.black)
+                .submitLabel(.search)
                 .font(.graphik(.regular, size: 15))
                 .foregroundStyle(.black)
                 .focused($isSearchFocused)
