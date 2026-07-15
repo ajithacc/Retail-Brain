@@ -53,7 +53,6 @@ extension StoreView {
                         .font(.graphik(.black, size: 20))
                         .foregroundStyle(.brandprimary)
                     Text(viewModel.selectedStore?.storeName ?? "---")
-                        .foregroundStyle(.brandprimary)
                         .font(.graphik(.black, size: 21))
                         .foregroundStyle(.black)
                     HStack(spacing: 5) {
