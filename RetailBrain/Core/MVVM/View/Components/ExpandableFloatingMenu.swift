@@ -11,16 +11,16 @@ import SwiftUI
 struct ExpandableFloatingMenu: View {
 
     @Binding var expanded: Bool
-    let onClick: (FloatingMenuItem) -> Void
+    let onClick: (FloatingMenu) -> Void
 
     private var totalTagCount: Int {
-        FloatingMenuItem.totalTagCount
+        FloatingMenu.totalTagCount
     }
 
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
             VStack(alignment: .trailing, spacing: 10) {
-                ForEach(Array(FloatingMenuItem.menu.enumerated()), id: \.element.id) { index, menu in
+                ForEach(Array(FloatingMenu.menu.enumerated()), id: \.element.id) { index, menu in
                     menuItem(menu: menu)
                         .scaleEffect(expanded ? 1 : 0.2, anchor: .bottomTrailing)
                         .opacity(expanded ? 1 : 0)
@@ -68,7 +68,7 @@ struct ExpandableFloatingMenu: View {
     }
 
     @ViewBuilder
-    private func menuItem(menu: FloatingMenuItem) -> some View {
+    private func menuItem(menu: FloatingMenu) -> some View {
         Button {
             withAnimation(.spring()) {
                 expanded = false

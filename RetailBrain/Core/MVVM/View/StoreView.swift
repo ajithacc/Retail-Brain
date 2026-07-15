@@ -30,6 +30,9 @@ struct StoreView: View {
         .navigationDestination(isPresented: $viewModel.navigateToGuidedNavView) {
             GuidedNavigationView()
         }
+        .task {
+            await viewModel.fetchStores()
+        }
     }
 }
 
@@ -49,7 +52,7 @@ extension StoreView {
                     Text(String(localized: "store.selector.title"))
                         .font(.graphik(.black, size: 20))
                         .foregroundStyle(.brandPrimary)
-                    Text(String(localized: "store.selector.name"))
+                    Text(viewModel.selectedStore?.storeName ?? "---")
                         .font(.graphik(.black, size: 21))
                         .foregroundStyle(.black)
                     HStack(spacing: 5) {
