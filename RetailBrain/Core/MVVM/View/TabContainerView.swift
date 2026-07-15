@@ -63,10 +63,11 @@ struct TabContainerView: View {
                 Text(tab.title)
                     .font(.graphik(isSelected ? .bold : .regular, size: 13))
             }
-            .foregroundStyle(isSelected ? Color.brandPrimary : Color.black)
+            .foregroundStyle(isSelected ? Color.brandprimary : Color.black)
             .frame(maxWidth: .infinity)
         }
         .buttonStyle(.plain)
+        .disabled(tab != .store)
     }
 }
 
@@ -76,18 +77,18 @@ struct TabContainerView: View {
 
 struct OnlineView: View {
     var body: some View {
-        Text("OnlineView")
+        Text(String(localized: "placeholder.online"))
     }
 }
 
 struct WalletView: View {
     var body: some View {
-        Text("WalletView")
+        Text(String(localized: "placeholder.wallet"))
     }
 }
 
 struct AccountView: View {
     var body: some View {
-        Text("AccountView")
+        Text(String(localized: "placeholder.account"))
     }
 }

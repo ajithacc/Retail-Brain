@@ -1,0 +1,573 @@
+{
+  "sourceLanguage" : "fr",
+  "strings" : {
+    "" : {
+
+    },
+    "%lld" : {
+
+    },
+    "common.cancel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Annuler"
+          }
+        }
+      }
+    },
+    "common.location" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Localisation"
+          }
+        }
+      }
+    },
+    "common.settings" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réglages"
+          }
+        }
+      }
+    },
+    "feature.go_card.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Présentez votre carte de fidélité à la caisse, et faites des économies !"
+          }
+        }
+      }
+    },
+    "feature.go_card.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ma carte GO!"
+          }
+        }
+      }
+    },
+    "feature.guided_route.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chercher un produit en magasin et laissez l’app vous guider !"
+          }
+        }
+      }
+    },
+    "feature.guided_route.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Itinéraire guidé"
+          }
+        }
+      }
+    },
+    "feature.memos.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pratiques ! Préparez vos listes de courses pour ne rien oublier..."
+          }
+        }
+      }
+    },
+    "feature.memos.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mes mémos"
+          }
+        }
+      }
+    },
+    "feature.scan_price.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Affichez le prix magasin d’un produit de n’importe où."
+          }
+        }
+      }
+    },
+    "feature.scan_price.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan Prix"
+          }
+        }
+      }
+    },
+    "feature.scan_to_go.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scanner et payez vos produits directement depuis l’app."
+          }
+        }
+      }
+    },
+    "feature.scan_to_go.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan to Go"
+          }
+        }
+      }
+    },
+    "floating_menu.challenges.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mes Défis"
+          }
+        }
+      }
+    },
+    "floating_menu.enriched_content.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contenu Enrichi"
+          }
+        }
+      }
+    },
+    "floating_menu.lists.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mes Listes"
+          }
+        }
+      }
+    },
+    "guided_nav.location.value" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hall d’entrée"
+          }
+        }
+      }
+    },
+    "guided_nav.recently_viewed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Déjà consulté"
+          }
+        }
+      }
+    },
+    "guided_nav.route.in_progress" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Itinéraire en cours ..."
+          }
+        }
+      }
+    },
+    "guided_nav.search.placeholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechercher en magasin ..."
+          }
+        }
+      }
+    },
+    "map.placeholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MAP"
+          }
+        }
+      }
+    },
+    "nfc.overlay.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rapprochez votre téléphone d’une étiquette connectée pour ouvrir automatiquement la fiche du produit et consulter ses informations à tout moment."
+          }
+        }
+      }
+    },
+    "nfc.overlay.hint" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[Insert here the utility of this “NFC” pin]"
+          }
+        }
+      }
+    },
+    "nfc.overlay.parnfc" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "par NFC"
+          }
+        }
+      }
+    },
+    "nfc.overlay.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contenu enrichi"
+          }
+        }
+      }
+    },
+    "permission.alert.accept" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accepter"
+          }
+        }
+      }
+    },
+    "permission.alert.decline" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Refuser"
+          }
+        }
+      }
+    },
+    "permission.alert.message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activez le Bluetooth pour suivre votre parcours d’achat en magasin."
+          }
+        }
+      }
+    },
+    "permission.alert.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accenture Store\naimerait utiliser votre localisation bluetooth"
+          }
+        }
+      }
+    },
+    "permission.bluetooth" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bluetooth"
+          }
+        }
+      }
+    },
+    "placeholder.account" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AccountView"
+          }
+        }
+      }
+    },
+    "placeholder.online" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OnlineView"
+          }
+        }
+      }
+    },
+    "placeholder.wallet" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "WalletView"
+          }
+        }
+      }
+    },
+    "shopping_list.empty.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "N’hésitez pas à créer des thèmes pour une optimisation optimale."
+          }
+        }
+      }
+    },
+    "shopping_list.empty.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Créez des listes pour les retrouver juste ici !"
+          }
+        }
+      }
+    },
+    "shopping_list.product_count" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "produits"
+          }
+        }
+      }
+    },
+    "shopping_list.reward_badge" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jour GO! cagnottés"
+          }
+        }
+      }
+    },
+    "shopping_list.section.butchery" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Boucherie, volaille, poissonnerie"
+          }
+        }
+      }
+    },
+    "shopping_list.section.deli" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Charcuterie, traiteur"
+          }
+        }
+      }
+    },
+    "shopping_list.section.produce" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fruits, légumes"
+          }
+        }
+      }
+    },
+    "shopping_list.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mes listes"
+          }
+        }
+      }
+    },
+    "shopping_list.weekly.count" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "14 Produits"
+          }
+        }
+      }
+    },
+    "shopping_list.weekly.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Courses de la semaine"
+          }
+        }
+      }
+    },
+    "store.features.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A utiliser dans votre magasin"
+          }
+        }
+      }
+    },
+    "store.selector.hours" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvert aujourd’hui jusque 21:30"
+          }
+        }
+      }
+    },
+    "store.selector.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accenture Store\nParis 13 ème"
+          }
+        }
+      }
+    },
+    "store.selector.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mon Magasin"
+          }
+        }
+      }
+    },
+    "tab.account.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mon compte"
+          }
+        }
+      }
+    },
+    "tab.online.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En ligne"
+          }
+        }
+      }
+    },
+    "tab.store.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En magasin"
+          }
+        }
+      }
+    },
+    "tab.wallet.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "4,48 €"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.2"
+}

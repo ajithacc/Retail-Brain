@@ -16,13 +16,13 @@ enum TabItem: Hashable, CaseIterable {
     var title: String {
         switch self {
         case .online:
-            return "En ligne"
+            return String(localized: "tab.online.title")
         case .store:
-            return "En magasin"
+            return String(localized: "tab.store.title")
         case .wallet:
-            return "4,48 €"
+            return String(localized: "tab.wallet.title")
         case .account:
-            return "Mon compte"
+            return String(localized: "tab.account.title")
         }
     }
 

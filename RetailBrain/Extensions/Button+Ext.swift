@@ -19,21 +19,25 @@ struct PrimaryButton: View {
     }
 
     var body: some View {
-        HStack(alignment: .center) {
-            if let image {
-                Image(image)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 20, height: 20)
+        Button(action: action) {
+            HStack(spacing: 8) {
+                if let image {
+                    Image(image)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 20, height: 20)
+                }
+                Text(title)
+                    .font(.graphik(.bold, size: 16))
             }
-            Button(title, action: action)
-                .font(.graphik(.bold, size: 16))
-                .foregroundStyle(.white)
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 14)
-                .background(.brandPrimary)
-                .clipShape(Capsule())
+            .foregroundStyle(.white)
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 14)
+            .background(.brandprimary)
+            .clipShape(Capsule())
+            .contentShape(Capsule())
         }
+        .buttonStyle(.plain)
     }
 }
 
