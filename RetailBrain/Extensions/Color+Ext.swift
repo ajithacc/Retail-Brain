@@ -57,3 +57,16 @@ extension Color {
         )
     }
 }
+
+extension ShapeStyle where Self == LinearGradient {
+    static var brandGradient: LinearGradient {
+        LinearGradient(
+            colors: [
+                Color(hex: "#460073"),
+                Color(hex: "#8400D9")
+            ],
+            startPoint: .leading,
+            endPoint: .trailing
+        )
+    }
+}

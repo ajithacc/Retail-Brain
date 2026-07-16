@@ -7,14 +7,13 @@
 //
 
 import SwiftUI
+import RetailBrainSDK
 
 struct GuidedNavigationView: View {
 
     @Environment(\.dismiss) private var dismiss
-    @State private var searchText: String = ""
     @FocusState private var isSearchFocused: Bool
-    @State private var showListSheet: Bool = false
-    @State private var floatingMenuExpanded: Bool = false
+    @StateObject private var viewModel = GuidedNavigationViewModel()
 
     var body: some View {
         VStack(spacing: 0) {
@@ -23,7 +22,7 @@ struct GuidedNavigationView: View {
             ZStack(alignment: .bottomTrailing) {
                 ZStack {
                     // Map
-                    MapPlaceholderView()
+                    RetailMapView()
                     // Current destination
                     CurrentDestinationView()
                     // Search overlay
@@ -33,24 +32,31 @@ struct GuidedNavigationView: View {
                     }
                 }
                 .overlay(
-                    (floatingMenuExpanded ? Color.black.opacity(0.3) : Color.clear)
+                    (viewModel.floatingMenuExpanded ? Color.black.opacity(0.3) : Color.clear)
                         .ignoresSafeArea()
                 )
                 // Floating Menu Button
                 floatingMenuButton
+                // NFC Overlay
+                if viewModel.showNFCOverlay {
+                    NFCOverlayView(showNFCOverlay: $viewModel.showNFCOverlay)
+                        .transition(.opacity)
+                }
             }
             .ignoresSafeArea(.keyboard, edges: .bottom)
         }
         .animation(.easeInOut, value: isSearchFocused)
-        .animation(.easeInOut, value: floatingMenuExpanded)
+        .animation(.easeInOut, value: viewModel.floatingMenuExpanded)
+        .animation(.easeInOut, value: viewModel.showNFCOverlay)
         .navigationBarBackButtonHidden(true)
-        .sheet(isPresented: $showListSheet) {
-            ShoppingListSheet(showList: $showListSheet)
+        .sheet(isPresented: $viewModel.showListSheet) {
+            ShoppingListSheet(showList: $viewModel.showListSheet)
                 .presentationDetents([.medium])
                 .interactiveDismissDisabled()
         }
         .onChange(of: isSearchFocused) { _, _ in
-            floatingMenuExpanded = false
+            viewModel.floatingMenuExpanded = false
+            viewModel.showNFCOverlay = false
         }
     }
 }
@@ -81,7 +87,7 @@ extension GuidedNavigationView {
                     .scaledToFit()
                     .frame(width: 28, height: 28)
                 TextField("",
-                          text: $searchText,
+                          text: $viewModel.searchText,
                           prompt: Text(String(localized: "guided_nav.search.placeholder"))
                     .foregroundStyle(.textfieldplaceholder)
                 )
@@ -90,9 +96,9 @@ extension GuidedNavigationView {
                 .font(.graphik(.regular, size: 15))
                 .foregroundStyle(.black)
                 .focused($isSearchFocused)
-                if !searchText.trimmed.isEmpty {
+                if !viewModel.searchText.trimmed.isEmpty {
                     Button {
-                        searchText = ""
+                        viewModel.searchText = ""
                     } label: {
                         Image(.searchclear)
                             .resizable()
@@ -123,14 +129,14 @@ extension GuidedNavigationView {
     @ViewBuilder
     private var floatingMenuButton: some View {
         if !isSearchFocused {
-            ExpandableFloatingMenu(expanded: $floatingMenuExpanded) { menu in
+            ExpandableFloatingMenu(expanded: $viewModel.floatingMenuExpanded) { menu in
                 switch menu.type {
                 case .challenge:
                     print("Show Challenge view")
                 case .enrichedContent:
-                    print("Show NFC Overlay")
+                    viewModel.showNFCOverlay = true
                 case .list:
-                    showListSheet = true
+                    viewModel.showListSheet = true
                 }
             }
             .padding()
@@ -168,16 +174,4 @@ extension GuidedNavigationView {
 
 #Preview {
     GuidedNavigationView()
-}
-
-struct MapPlaceholderView: View {
-    var body: some View {
-        Color.brandprimary
-            .ignoresSafeArea()
-            .overlay {
-                Text(String(localized: "map.placeholder"))
-                    .bold()
-                    .foregroundStyle(.black)
-            }
-    }
 }

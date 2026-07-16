@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		3097BDF130078F30007604F8 /* RetailBrainSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 3097BDF030078F30007604F8 /* RetailBrainSDK */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		307C21A12FFCD819001EDA17 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -65,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3097BDF130078F30007604F8 /* RetailBrainSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +130,7 @@
 			);
 			name = RetailBrain;
 			packageProductDependencies = (
+				3097BDF030078F30007604F8 /* RetailBrainSDK */,
 			);
 			productName = RetailBrain;
 			productReference = 307C21932FFCD80F001EDA17 /* RetailBrain.app */;
@@ -209,6 +215,9 @@
 			);
 			mainGroup = 307C218A2FFCD80F001EDA17;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				3097BDEF30078F30007604F8 /* XCRemoteSwiftPackageReference "RetailBrain-Package" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 307C21942FFCD80F001EDA17 /* Products */;
 			projectDirPath = "";
@@ -624,6 +633,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3097BDEF30078F30007604F8 /* XCRemoteSwiftPackageReference "RetailBrain-Package" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ajithacc/RetailBrain-Package.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3097BDF030078F30007604F8 /* RetailBrainSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3097BDEF30078F30007604F8 /* XCRemoteSwiftPackageReference "RetailBrain-Package" */;
+			productName = RetailBrainSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 307C218B2FFCD80F001EDA17 /* Project object */;
 }

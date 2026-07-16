@@ -83,16 +83,7 @@ struct ExpandableFloatingMenu: View {
                     .font(.graphik(.regular, size: 16))
                     .padding(.horizontal)
                     .padding(.vertical, 10)
-                    .background(menu.highlight ? AnyShapeStyle(
-                        LinearGradient(
-                            colors: [
-                                Color(hex: "#460073"),
-                                Color(hex: "#8400D9")
-                            ],
-                            startPoint: .leading,
-                            endPoint: .trailing
-                        )
-                    ) : AnyShapeStyle(Color.white))
+                    .background(menu.highlight ? AnyShapeStyle(.brandGradient) : AnyShapeStyle(.white))
                     .clipShape(RoundedRectangle(cornerRadius: 5))
                     .shadow(color: .black.opacity(0.2), radius: 8)
 
