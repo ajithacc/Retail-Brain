@@ -27,8 +27,11 @@ struct GuidedNavigationView: View {
                     CurrentDestinationView()
                     // Search overlay
                     if isSearchFocused {
-                        searchOverlayView
-                            .transition(.opacity)
+                        SearchResultsView(
+                            isSearchFocused: $isSearchFocused,
+                            searchText: $viewModel.searchText
+                        )
+                        .transition(.opacity)
                     }
                 }
                 .overlay(
