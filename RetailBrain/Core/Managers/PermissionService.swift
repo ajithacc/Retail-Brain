@@ -1,5 +1,5 @@
 //
-//  PermissionManaging.swift
+//  PermissionService.swift
 //  RetailBrain
 //
 //  Created by muhammed.nadeem.m.a on 08/07/26.

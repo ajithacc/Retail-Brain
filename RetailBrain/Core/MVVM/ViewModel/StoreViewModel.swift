@@ -14,11 +14,20 @@ final class StoreViewModel: ObservableObject {
 
     @Published var showPermissionAlert: Bool = false
     @Published var navigateToGuidedNavView: Bool = false
+    @Published var stores: [StoreData] = []
+    @Published var selectedStore: StoreData?
+
+    private var hasFetchedStores = false
 
     private let permissionManager: PermissionService
+    private let dataRepository: RetailBrainRepository
 
-    init(permissionManager: PermissionService = PermissionManager()) {
+    init(
+        permissionManager: PermissionService = PermissionManager(),
+        dataRepository: RetailBrainRepository = DataRepository()
+    ) {
         self.permissionManager = permissionManager
+        self.dataRepository = dataRepository
     }
 
     func storeSelection() {
@@ -72,6 +81,26 @@ extension StoreViewModel {
         guard let url = URL(string: UIApplication.openSettingsURLString),
               UIApplication.shared.canOpenURL(url) else { return }
         UIApplication.shared.open(url)
+    }
+
+}
+
+// MARK: API
+extension StoreViewModel {
+
+    func fetchStores() async {
+        guard !hasFetchedStores else { return }
+        CustomLoader.show()
+        defer {
+            CustomLoader.hide()
+        }
+        do {
+            stores = try await dataRepository.fetchStores()
+            self.selectedStore = stores.first
+            hasFetchedStores = true
+        } catch {
+            print("Error fetching stores: \(error)")
+        }
     }
 
 }
