@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct FloatingMenuItem: Identifiable {
+struct FloatingMenu: Identifiable {
     let id = UUID()
     let title: String
     let image: String
@@ -23,7 +23,7 @@ struct FloatingMenuItem: Identifiable {
     }
 }
 
-extension FloatingMenuItem {
+extension FloatingMenu {
 
     static var totalTagCount: Int {
         menu.compactMap(\.tag).reduce(0, +)
