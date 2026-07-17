@@ -15,7 +15,7 @@ struct ProductDetailsSheet: View {
     @State private var isSwiped: Bool = false
     @State private var cardHeight: CGFloat = 0
 
-    private let buttonWidth: CGFloat = 90
+    private let buttonWidth: CGFloat = 94
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -51,7 +51,6 @@ extension ProductDetailsSheet {
                     .frame(width: 16, height: 16)
             }
         }
-        .padding(.top, 10)
     }
 
     @ViewBuilder
@@ -209,6 +208,7 @@ extension ProductDetailsSheet {
                 .scaledToFit()
                 .frame(width: 24, height: 24)
         }
+        .disabled(offset != 0)
     }
 
     @ViewBuilder
