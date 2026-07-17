@@ -16,6 +16,7 @@ final class GuidedNavigationViewModel: ObservableObject {
     @Published var showListSheet: Bool = false
     @Published var floatingMenuExpanded: Bool = false
     @Published var showNFCOverlay: Bool = false
+    @Published var showProductDetails: Bool = false
 
     init() {
         initializeSDK()

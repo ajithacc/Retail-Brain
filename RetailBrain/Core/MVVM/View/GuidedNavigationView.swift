@@ -16,42 +16,50 @@ struct GuidedNavigationView: View {
     @StateObject private var viewModel = GuidedNavigationViewModel()
 
     var body: some View {
-        VStack(spacing: 0) {
-            headerView
-                .zIndex(1)
-            ZStack(alignment: .bottomTrailing) {
-                ZStack {
-                    // Map
-                    RetailMapView()
-                    // Current destination
-                    CurrentDestinationView()
-                    // Search overlay
-                    if isSearchFocused {
-                        SearchResultsView(
-                            isSearchFocused: $isSearchFocused,
-                            searchText: $viewModel.searchText
-                        )
-                        .transition(.opacity)
+        ZStack(alignment: .bottom) {
+            VStack(spacing: 0) {
+                headerView
+                    .zIndex(1)
+                ZStack(alignment: .bottomTrailing) {
+                    ZStack {
+                        // Map
+                        RetailMapView()
+                        // Current destination
+                        CurrentDestinationView()
+                        // Search overlay
+                        if isSearchFocused {
+                            SearchResultsView(
+                                isSearchFocused: $isSearchFocused,
+                                searchText: $viewModel.searchText
+                            )
+                            .transition(.opacity)
+                        }
+                    }
+                    .overlay(
+                        (viewModel.floatingMenuExpanded ? Color.black.opacity(0.3) : Color.clear)
+                            .ignoresSafeArea()
+                    )
+                    // Floating Menu Button
+                    floatingMenuButton
+                    // NFC Overlay
+                    if viewModel.showNFCOverlay {
+                        NFCOverlayView(showNFCOverlay: $viewModel.showNFCOverlay)
+                            .transition(.opacity)
                     }
                 }
-                .overlay(
-                    (viewModel.floatingMenuExpanded ? Color.black.opacity(0.3) : Color.clear)
-                        .ignoresSafeArea()
-                )
-                // Floating Menu Button
-                floatingMenuButton
-                // NFC Overlay
-                if viewModel.showNFCOverlay {
-                    NFCOverlayView(showNFCOverlay: $viewModel.showNFCOverlay)
-                        .transition(.opacity)
-                }
+                .ignoresSafeArea(.keyboard, edges: .bottom)
             }
-            .ignoresSafeArea(.keyboard, edges: .bottom)
+            // Product Details Sheet
+            if viewModel.showProductDetails {
+                ProductDetailsSheet(showProductSheet: $viewModel.showProductDetails)
+                    .transition(.move(edge: .bottom))
+            }
         }
+        .ignoresSafeArea(.keyboard, edges: .bottom)
         .animation(.easeInOut, value: isSearchFocused)
         .animation(.easeInOut, value: viewModel.floatingMenuExpanded)
         .animation(.easeInOut, value: viewModel.showNFCOverlay)
-        .navigationBarBackButtonHidden(true)
+        .animation(.easeInOut, value: viewModel.showProductDetails)
         .sheet(isPresented: $viewModel.showListSheet) {
             ShoppingListSheet(showList: $viewModel.showListSheet)
                 .presentationDetents([.medium])
@@ -60,7 +68,9 @@ struct GuidedNavigationView: View {
         .onChange(of: isSearchFocused) { _, _ in
             viewModel.floatingMenuExpanded = false
             viewModel.showNFCOverlay = false
+            viewModel.showProductDetails = false
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
@@ -135,7 +145,7 @@ extension GuidedNavigationView {
             ExpandableFloatingMenu(expanded: $viewModel.floatingMenuExpanded) { menu in
                 switch menu.type {
                 case .challenge:
-                    print("Show Challenge view")
+                    viewModel.showProductDetails = true
                 case .enrichedContent:
                     viewModel.showNFCOverlay = true
                 case .list:
@@ -144,33 +154,6 @@ extension GuidedNavigationView {
             }
             .padding()
         }
-    }
-
-    @ViewBuilder
-    private var searchOverlayView: some View {
-        VStack {
-            // Search View Header
-            HStack {
-                Text(String(localized: "guided_nav.recently_viewed"))
-                    .font(.graphik(.bold, size: 24))
-                    .foregroundStyle(.black)
-                Spacer()
-                Button {
-                    isSearchFocused = false
-                } label: {
-                    Image(.xmark)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 16, height: 16)
-                }
-            }
-            Spacer() // Search results
-        }
-        .padding(.top, 20)
-        .padding(.horizontal)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .ignoresSafeArea(edges: .bottom)
-        .background(Color.white.ignoresSafeArea())
     }
 
 }
