@@ -7,13 +7,16 @@
 //
 
 import SwiftUI
-import RetailBrainSDK
 
 struct GuidedNavigationView: View {
 
+    @State private var ignoreStoreSelectionsUntil: Date = .distantPast
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.scenePhase) private var scenePhase
     @FocusState private var isSearchFocused: Bool
     @StateObject private var viewModel = GuidedNavigationViewModel()
+    @StateObject private var sdkViewModel = RetailSDKViewModel()
+    
 
     var body: some View {
         VStack(spacing: 0) {
@@ -21,8 +24,24 @@ struct GuidedNavigationView: View {
                 .zIndex(1)
             ZStack(alignment: .bottomTrailing) {
                 ZStack {
+                    
                     // Map
-                    RetailMapView()
+                    sdkViewModel.makeMapView()
+                    
+                    // for No permission Alert setUp
+                    
+                    if sdkViewModel.showPermissionRevokedAlert {
+                        PermissionDeniedAlertView(
+                            message: sdkViewModel.revokedPermissionType,
+                            onOpenSettings: {
+                                sdkViewModel.openSettings()
+                            },
+                            onCancel: {
+                                sdkViewModel.showPermissionRevokedAlert = false
+                            }
+                        )
+                    }
+                    
                     // Current destination
                     CurrentDestinationView()
                     // Search overlay
@@ -38,6 +57,29 @@ struct GuidedNavigationView: View {
                     (viewModel.floatingMenuExpanded ? Color.black.opacity(0.3) : Color.clear)
                         .ignoresSafeArea()
                 )
+                .overlay(alignment: .bottom) {
+                    if let product = sdkViewModel.selectedProductDetails {
+                        ProductDetailsSheetView(
+                            product: product,
+                            onClose: {
+                                ignoreStoreSelectionsUntil = Date().addingTimeInterval(0.35)
+                                sdkViewModel.selectedProductDetails = nil
+                            }
+                        )
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 201, alignment: .top)
+                        .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+                        .shadow(color: .black.opacity(0.08), radius: 10, x: 0, y: -2)
+                        .transition(.move(edge: .bottom).combined(with: .opacity))
+                        .zIndex(2)
+                    }
+                }
+
+                .onAppear {
+                    // Initialize SDK when map page appears
+                    sdkViewModel.startShopping()
+                    sdkViewModel.refreshPermissionStateAfterForeground()
+                }
                 // Floating Menu Button
                 floatingMenuButton
                 // NFC Overlay
@@ -60,6 +102,11 @@ struct GuidedNavigationView: View {
         .onChange(of: isSearchFocused) { _, _ in
             viewModel.floatingMenuExpanded = false
             viewModel.showNFCOverlay = false
+        }
+        .onChange(of: scenePhase) { _, newPhase in
+            if newPhase == .active {
+                sdkViewModel.refreshPermissionStateAfterForeground()
+            }
         }
     }
 }

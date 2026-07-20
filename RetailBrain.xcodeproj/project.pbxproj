@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3097BDF130078F30007604F8 /* RetailBrainSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 3097BDF030078F30007604F8 /* RetailBrainSDK */; };
+		2C0C1A39300D24620052BF35 /* RetailBrainSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 2C0C1A38300D24620052BF35 /* RetailBrainSDK */; };
+		2C774162300A0B2000A5D16A /* RetailBrainSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 2C774161300A0B2000A5D16A /* RetailBrainSDK */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3097BDF130078F30007604F8 /* RetailBrainSDK in Frameworks */,
+				2C774162300A0B2000A5D16A /* RetailBrainSDK in Frameworks */,
+				2C0C1A39300D24620052BF35 /* RetailBrainSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,7 +132,8 @@
 			);
 			name = RetailBrain;
 			packageProductDependencies = (
-				3097BDF030078F30007604F8 /* RetailBrainSDK */,
+				2C774161300A0B2000A5D16A /* RetailBrainSDK */,
+				2C0C1A38300D24620052BF35 /* RetailBrainSDK */,
 			);
 			productName = RetailBrain;
 			productReference = 307C21932FFCD80F001EDA17 /* RetailBrain.app */;
@@ -216,7 +219,7 @@
 			mainGroup = 307C218A2FFCD80F001EDA17;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				3097BDEF30078F30007604F8 /* XCRemoteSwiftPackageReference "RetailBrain-Package" */,
+				2C0C1A37300D24620052BF35 /* XCLocalSwiftPackageReference "../RetailSDK" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 307C21942FFCD80F001EDA17 /* Products */;
@@ -634,21 +637,20 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		3097BDEF30078F30007604F8 /* XCRemoteSwiftPackageReference "RetailBrain-Package" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ajithacc/RetailBrain-Package.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
+/* Begin XCLocalSwiftPackageReference section */
+		2C0C1A37300D24620052BF35 /* XCLocalSwiftPackageReference "../RetailSDK" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../RetailSDK;
 		};
-/* End XCRemoteSwiftPackageReference section */
+/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		3097BDF030078F30007604F8 /* RetailBrainSDK */ = {
+		2C0C1A38300D24620052BF35 /* RetailBrainSDK */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3097BDEF30078F30007604F8 /* XCRemoteSwiftPackageReference "RetailBrain-Package" */;
+			productName = RetailBrainSDK;
+		};
+		2C774161300A0B2000A5D16A /* RetailBrainSDK */ = {
+			isa = XCSwiftPackageProductDependency;
 			productName = RetailBrainSDK;
 		};
 /* End XCSwiftPackageProductDependency section */

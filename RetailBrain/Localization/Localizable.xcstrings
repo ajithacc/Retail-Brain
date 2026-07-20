@@ -7,6 +7,15 @@
     "%lld" : {
 
     },
+    "10% Jour GO! cagnottés" : {
+
+    },
+    "200g | 26,65€ / kg | 100 tasses" : {
+
+    },
+    "AUCHAN Café soluble intensité 6" : {
+
+    },
     "common.cancel" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -39,6 +48,9 @@
           }
         }
       }
+    },
+    "Déjà consulté" : {
+
     },
     "feature.go_card.subtitle" : {
       "extractionState" : "manual",

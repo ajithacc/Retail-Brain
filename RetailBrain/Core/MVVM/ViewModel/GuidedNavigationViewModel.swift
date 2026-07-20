@@ -22,13 +22,6 @@ final class GuidedNavigationViewModel: ObservableObject {
     }
 
     func initializeSDK() {
-        RetailBrainManager.shared.delegate = self
-        let configuration = RetailBrainConfig(
-            apiKey: "5eab30aa91b055001a68e996",
-            apiSecret: "RJyRXKcryCMy4erZqqCbuB1NbR66QTGNXVE0x3Pg6oCIlUR1",
-            mapId: "mappedin-demo-mall"
-        )
-        RetailBrainManager.shared.initialize(config: configuration)
     }
 
 }
