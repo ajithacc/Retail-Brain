@@ -1,0 +1,27 @@
+{
+  "configurations": [
+    {
+      "mode": "singleFloor",
+      "venueId": "venue-single-001",
+      "mapId": "6679882a8298d5000b85ee89",
+      "defaultFloor": "L1",
+      "buildingId": "building-01",
+      "storeId": "store-single-001",
+      "apiKey": "mik_yeBk0Vf0nNJtpesfu560e07e5",
+      "apiSecret": "mis_2g9ST8ZcSFb5R9fPnsvYhrX3RyRwPtDGbMGweCYKEq385431022",
+      "isMultiFloor": false
+    },
+    {
+      "mode": "multiFloor",
+      "venueId": "venue-multi-001",
+      "mapId": "mappedin-demo-mall",
+      "defaultFloor": "M1",
+      "buildingId": "building-02",
+      "storeId": "store-multi-001",
+      "apiKey": "5eab30aa91b055001a68e996",
+      "apiSecret": "RJyRXKcryCMy4erZqqCbuB1NbR66QTGNXVE0x3Pg6oCIlUR1",
+      "isMultiFloor": true
+    }
+  ]
+}
+

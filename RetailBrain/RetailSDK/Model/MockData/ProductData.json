@@ -1,0 +1,26 @@
+{
+  "products": [
+    {"name":"Milk","storeName":"Dairy","description":"Fresh milk and dairy products","floor":"singleFloor"},
+    {"name":"Washroom","storeName":"Washroom","description":"Restrooms and facilities","floor":"singleFloor"},
+    {"name":"Butcher","storeName":"Butcher","description":"Fresh meat and butcher products","floor":"singleFloor"},
+    {"name":"Seafood","storeName":"Seafood","description":"Fresh seafood section","floor":"singleFloor"},
+    {"name":"Cafe","storeName":"Cafe","description":"Cafe and dining area","floor":"singleFloor"},
+    {"name":"Cake","storeName":"Bakery","description":"Fresh baked cakes and pastries","floor":"singleFloor"},
+    {"name":"Biscuits","storeName":"Bakery","description":"Cookies and biscuits","floor":"singleFloor"},
+    {"name":"Popcorn","storeName":"Snacks","description":"Popcorn and snacks","floor":"singleFloor"},
+    {"name":"Chips","storeName":"Snacks","description":"Chips and crisps","floor":"singleFloor"},
+    {"name":"Tomato Paste","storeName":"Pantry","description":"Tomato paste and sauces","floor":"singleFloor"},
+
+    {"name":"Apple Store","storeName":"Apple Store","description":"Latest Apple devices and accessories","floor":"multiFloor"},
+    {"name":"Nike","storeName":"Nike","description":"Sportswear and footwear","floor":"multiFloor"},
+    {"name":"Adidas","storeName":"Adidas","description":"Athletic apparel and shoes","floor":"multiFloor"},
+    {"name":"Zara","storeName":"Zara","description":"Fashion clothing","floor":"multiFloor"},
+    {"name":"H&M","storeName":"H&M","description":"Casual fashion and accessories","floor":"multiFloor"},
+    {"name":"Puma","storeName":"Puma","description":"Sports apparel and shoes","floor":"multiFloor"},
+    {"name":"Sephora","storeName":"Sephora","description":"Beauty and cosmetics","floor":"multiFloor"},
+    {"name":"Starbucks","storeName":"Starbucks","description":"Coffee and beverages","floor":"multiFloor"},
+    {"name":"Subway","storeName":"Subway","description":"Sandwiches and salads","floor":"multiFloor"},
+    {"name":"Cinema","storeName":"Multiplex","description":"Movie theatre","floor":"multiFloor"}
+  ]
+}
+
